@@ -14,6 +14,9 @@ namespace a9t9Ocr
 {
     public class LeftSideViewModel : INotifyPropertyChanged, IDropTarget
     {
+        public void DragEnter(IDropInfo dropInfo) { throw new NotImplementedException(); }
+
+        public void DragLeave(IDropInfo dropInfo) { throw new NotImplementedException(); }
         #region Commands
         public ICommand OpenImageCommand { get; set; }
         public ICommand OpenPdfCommand { get; set; }

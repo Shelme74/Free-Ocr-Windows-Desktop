@@ -34,8 +34,7 @@ namespace a9t9Ocr
             var resultImages = new List<string>();
             try
             {
-                const int desiredXDpi = 96;
-                const int desiredYDpi = 96;
+                const int desiredDpi = 96;
 
                 string inputPdfPath = pathToPdf;
                 var directoryInfo = new FileInfo(inputPdfPath).Directory;
@@ -55,7 +54,7 @@ namespace a9t9Ocr
                 for (int pageNumber = 1; pageNumber <= rasterizer.PageCount; pageNumber++)
                 {
                     string pageFilePath = Path.Combine(outputPath + _count + @"\", @"Page-" + pageNumber + @".tiff");
-                    Image img = rasterizer.GetPage(desiredXDpi, desiredYDpi, pageNumber);
+                    Image img = rasterizer.GetPage(desiredDpi, pageNumber);
                     img.Save(pageFilePath, ImageFormat.Tiff);
                     resultImages.Add(pageFilePath);
                 }
